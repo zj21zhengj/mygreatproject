@@ -16,4 +16,7 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!-- 处理静态资源 -->
+    <mvc:annotation-driven/>  <!--没有这个会报404错误 https://blog.csdn.net/liujunyu_10/article/details/77860369 -->
+    <mvc:resources location="/asset/" mapping="/asset/**"></mvc:resources>
 </beans>

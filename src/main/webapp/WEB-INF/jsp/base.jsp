@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="../mygreatproject_war_exploded/asset/uikit/css/uikit.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../asset/uikit/js/uikit.min.js"></script>
 </head>
-<body>
 <body>
 <div class="x-goto-top">
     <div class="x-arrow"></div>
