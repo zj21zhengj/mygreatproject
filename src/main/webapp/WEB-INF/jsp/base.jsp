@@ -7,11 +7,22 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<style>
+    .x-center {
+        margin: 0;
+    }
+
+    .x-center {
+        margin-left: 316px;
+        padding-left: 15px;
+    }
+</style>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="../mygreatproject_war_exploded/asset/uikit/css/uikit.min.css" />
+    <!--搞不懂为什么公司的项目不用加{pageContext.request.contextPath}，直接../就好-->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/uikit/css/uikit.min.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="../asset/uikit/js/uikit.min.js"></script>
+    <script src="${pageContext.request.contextPath}/asset/uikit/js/uikit.min.js"></script>
 </head>
 <body>
 <div class="x-goto-top">
@@ -152,5 +163,6 @@
         </div>
     </div>
 </div><!-- // header -->
+
 </body>
 </html>

@@ -6,13 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/hello")
 public class HelloController{
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/hello",method = RequestMethod.GET)
     public String printHello(Model model) {
         model.addAttribute("message", "Hello Spring MVC Framework!");
-        return "base";
+        return "wiki/wiki";
+    }
+
+    @RequestMapping(value="/hello2",method = RequestMethod.GET)
+    public String printHello2(Model model) {
+        model.addAttribute("message", "Hello Spring MVC Framework!");
+        return "manage";
     }
 
 }
