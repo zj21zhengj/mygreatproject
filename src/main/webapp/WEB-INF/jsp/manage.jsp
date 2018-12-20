@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/static/css/codemirror.css" />
-    <link rel="stylesheet" href="/static/css/itranswarp.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/static/css/codemirror.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/static/css/itranswarp.css" />
     <script src="${pageContext.request.contextPath}/asset/static/js/jquery.js"></script>
     <script src="${pageContext.request.contextPath}/asset/static/js/underscore.js"></script>
     <script src="${pageContext.request.contextPath}/asset/static/js/sha1.min.js"></script>
@@ -72,15 +72,15 @@
             <a href="/" target="_blank" class="uk-navbar-brand"><i class="uk-icon-home"></i></a>
             <ul id="ul-navbar" class="uk-navbar-nav">
                 <div class="uk-navbar-content">Management</div>
-                <li><a href="/manage/discuss/">{{ _('Discuss') }}</a></li>
-                <li><a href="/manage/article/">{{ _('Articles') }}</a></li>
-                <li><a href="/manage/webpage/">{{ _('Web Pages') }}</a></li>
-                <li><a href="/manage/wiki/">{{ _('Wikis') }}</a></li>
-                <li><a href="/manage/attachment/">{{ _('Attachments') }}</a></li>
-                <li><a href="/manage/user/">{{ _('Users') }}</a></li>
-                <li><a href="/manage/navigation/">{{ _('Navigations') }}</a></li>
-                <li><a href="/manage/ad/">{{ _('AD') }}</a></li>
-                <li><a href="/manage/setting/">{{ _('Settings') }}</a></li>
+                <li><a href="/manage/discuss/">Discuss</a></li>
+                <li><a href="/manage/article/">Articles')</a></li>
+                <li><a href="/manage/webpage/">Web Pages</a></li>
+                <li><a href="/manage/wiki/">Wikis</a></li>
+                <li><a href="/manage/attachment/">Attachments</a></li>
+                <li><a href="/manage/user/">Users</a></li>
+                <li><a href="/manage/navigation/">Navigations</a></li>
+                <li><a href="/manage/ad/">AD</a></li>
+                <li><a href="/manage/setting/">Settings</a></li>
                 <!-- <li><a href="/manage/api/">API</a></li> -->
             </ul>
 
