@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2018/12/19
-  Time: 17:04
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -105,6 +100,7 @@
     <div class="x-placeholder"><!-- placeholder --></div>
     <div class="uk-container x-container">
         <div class="uk-grid">
+            <rapid:block name="block-main">
             <div class="uk-width-1-6">
                 <ul class="uk-nav uk-nav-side">
                     <li class="uk-nav-header">Sample Menu</li>
@@ -116,6 +112,7 @@
             <div class="uk-width-5-6">
                 <h3>Content</h3>
             </div>
+            </rapid:block>
         </div>
     </div>
     <div class="x-push-to-bottom"></div>

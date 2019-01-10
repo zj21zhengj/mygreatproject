@@ -17,7 +17,13 @@ public class HelloController{
     @RequestMapping(value="/hello2",method = RequestMethod.GET)
     public String printHello2(Model model) {
         model.addAttribute("message", "Hello Spring MVC Framework!");
-        return "manage";
+        return "article/article_form";
+    }
+
+    @RequestMapping(value="/hello3",method = RequestMethod.GET)
+    public String printHello3(Model model) {
+        model.addAttribute("message", "Hello Spring MVC Framework!");
+        return "index";
     }
 
 }
