@@ -1,9 +1,9 @@
-package com.imooc.domain;
+package com.imooc.repository;
 
+import com.imooc.domain.Employee;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
-import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
@@ -23,7 +23,12 @@ import java.util.List;
  * 事务在spring data中的使用
  * 1） 事务一般是在Service层
  * 2）@Query @Modifying @Transitional 的综合使用
+ *
+ *
+  https://blog.csdn.net/qq_33764491/article/details/78872328
+
  */
+
 public interface EmployeeRepository extends Repository<Employee,Integer> {
 
     public Employee findByName(String name);

@@ -1,6 +1,7 @@
-package com.imooc.domain;
+package com.imooc.repository;
 
 import com.imooc.dao.StudentDAO;
+import com.imooc.domain.Employee;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
