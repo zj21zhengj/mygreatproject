@@ -1,6 +1,5 @@
 package com.imooc.service;
 
-import com.imooc.domain.EmployeeRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
