@@ -57,8 +57,15 @@ public class EmployeeJpaSpecificationExecutorRepositoryTest {
                                          CriteriaQuery<?> query,
                                          CriteriaBuilder cb) {
                 //root(employee (age))
+                /*
                 Path path = root.get("age");
                 return cb.gt(path,50);
+                */
+                List<Predicate> list = new ArrayList<>();
+                list.add(cb.equal(root.get("name").as(String.class), "张三"));
+                list.add(cb.gt(root.<Number>get("age"),20));
+                Predicate[] p = new Predicate[list.size()];
+                return  cb.and(list.toArray(p));
             }
         };
 
