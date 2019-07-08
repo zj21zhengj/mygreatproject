@@ -1,0 +1,53 @@
+从官网获取 配置方法
+ 原因  1.权威 2.避免过时性
+
+mvn -v查看maven是否安装成功
+
+当默认安装的 web.xml 是2.x的时候默认的 el表达式是不工作的
+需要换到  3.1版本， 可以到 tomcat下的example里的web.inf 里拷贝一份已经存在的 xml文件
+
+junit 选择 4版本起步， 因为3版本是编程，4开始是基于注解
+日志  的类型 log4j,logback,common-logging
+        slf4j 是规范/接口
+
+一般选择  slf4j+ logback   // 关于加入日志的前端传过来的ip地址用户等，可以回忆下金投工作中的代码
+实现 slf4j 接口并整合
+<dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+自身整合依赖
+   <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
+竞争是秒杀难点
+技术上就是 数据的 事务和行级锁
+transtion   update库存 insert 购买记录
+一个在修改，很多个在等待
+
+
+秒杀接口暴露 （避免用程序自动秒杀）
+执行秒杀
+
+mybatis 根据映射   对象 --- 》 数据库
+参数 + sql = list
+
+mybatis sql 可以写在xml里，也可以用注解
+
+mybatis 如何实现dao接口 mapper自动实现dao接口
+api  编程方法实现 dao接口
+xml里不能有 <=  用  <![CDATA[ <= ]]>
+
+mybatis
+只写接口，不写实现
+
+错误原因 https://www.cnblogs.com/lfm601508022/p/InvalidBoundStatement.html
+
+
+
+ 

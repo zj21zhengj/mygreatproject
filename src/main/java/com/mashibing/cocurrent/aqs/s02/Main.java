@@ -18,19 +18,22 @@ public class Main {
         Thread[] threads = new Thread[100];
 
         for (int i = 0; i < threads.length; i++) {
-            threads[i] = new Thread(() -> {
-                try{
-                    lock.lock();
-                    for (int j = 0; j < 100; j++) {
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+            threads[i] = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try{
+                        lock.lock();
+                        for (int j = 0; j < 100; j++) {
+                            try {
+                                Thread.sleep(1);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            m++;
                         }
-                        m++;
+                    }finally {
+                        lock.unlock();
                     }
-                }finally {
-                    lock.unlock();
                 }
             });
         }
