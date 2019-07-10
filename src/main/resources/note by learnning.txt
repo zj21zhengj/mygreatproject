@@ -47,7 +47,48 @@ mybatis
 只写接口，不写实现
 
 错误原因 https://www.cnblogs.com/lfm601508022/p/InvalidBoundStatement.html
+xml没解析到 target里
+
+service层是 业务逻辑层
+dto 关注的是 web 和 service之间的 数据传递 
+entity 是 业务数据
+接口设计 应该是使用者的角度 设计
+
+三个方面： 方法定义粒度 ，参数，返回类型（return 类型要友好/异常）
+
+restful 一种优雅的url表诉方式
+资源的状态和状态转移
+
+POST /seckill/execute/{seckillid}
+
+POST /seckill/{seckillld}/excetion   第2种才是友好的
+
+GET /seckill/delete/{id}
+DELETE /seckill/{id}/delete      第2种才是优雅的
+
+GET 
+POST
+PUT     put和post没明显区别，put可能用于幂等性
+DELETE 
+
+springmvc 运行流程
+1. 用户发送请求 都到 dispatcherServlet 
+2.会到 DefaultAnnotaion HandlerMapping  （url对应到handler)
+3.接着会到 DefaultAnnotaion HandlerAdapter (handler适配，4 到controller,如果有拦截器也会衔接)
+5.返回到 modelandview
+6.通过dispathcherServlet 到 InternalResoureViewResolver  结合Model 返回jsp
 
 
+applicationContext-*.xml 可以映射多个xml文件
 
+Controller 里的 method设置为post安全点
+post 可以预防， 直接在url里输入地址获取数据
  
+
+https://zhidao.baidu.com/question/1447368474883103140.html
+理论上来说js标签放在html文档的任何位置都可以，规范起见，推荐放到body结束标签的末尾，包含到body标签内：
+<body>
+    <!-- 这里是其他的HTML标签 -->
+    <script> // 这里是代码 </script>
+</body>
+这样处理的好处是无需担心因页面未完成加载，造成DOM节点获取不到，使脚本报错的问题，而且能避免因脚本运行缓慢造成页面卡死的问题。另外，Yahoo的前端优化指南里就有这一条。
