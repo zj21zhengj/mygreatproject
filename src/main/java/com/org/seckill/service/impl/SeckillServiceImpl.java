@@ -47,7 +47,14 @@ public class SeckillServiceImpl implements SeckillService {
 
     @Override
     public Exposer exportSeckillUrl(long seckillId) {
-
+        /**
+         *  get from cache
+         *  if null
+         *     get from db
+         *     cacnh.put(db)
+         *  else
+         *    return
+         */
         Seckill seckill = seckillDao.queryById(seckillId);
         if(seckill == null) {
             return new Exposer(false,seckillId);

@@ -68,7 +68,7 @@
 <script src="http://cdn.bootcss.com/jquery.countdown/2.1.0/jquery.countdown.min.js"></script>
 <!-- 开始编写交互逻辑 -->
 <c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
-<script src="${path}/resource/srcipt/seckill.js" type="text/javascript" ></script>
+<script src="${path}/resource/script/seckill.js" type="text/javascript" ></script>
 <script type="text/javascript">
     $(function(){
         seckill.detail.init({
