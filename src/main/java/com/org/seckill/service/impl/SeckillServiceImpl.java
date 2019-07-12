@@ -2,6 +2,7 @@ package com.org.seckill.service.impl;
 
 import com.org.seckill.dao.SeckillDao;
 import com.org.seckill.dao.SuccessKillDao;
+import com.org.seckill.dao.cache.RedisDao;
 import com.org.seckill.dto.Exposer;
 import com.org.seckill.dto.SeckillExecution;
 import com.org.seckill.entity.Seckill;
@@ -13,6 +14,7 @@ import com.org.seckill.exception.SeckillException;
 import com.org.seckill.service.SeckillService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
@@ -27,6 +29,9 @@ public class SeckillServiceImpl implements SeckillService {
     private Logger logger = LoggerFactory.getLogger(SeckillServiceImpl.class);
 
     private final String salt = "saaa2333(((9cxx";
+
+    @Autowired
+    private RedisDao redisDao;
 
     //注入service依赖
     @Resource
@@ -54,12 +59,26 @@ public class SeckillServiceImpl implements SeckillService {
          *     cacnh.put(db)
          *  else
          *    return
+         *    不用考虑数量的变化。数量是0时在秒杀操作里做
+         *    当商品不用是做废弃处理的，所以不用关心数量
+         *
+         *    debug模式下 run to rusor 可以跳到指定点
          */
-        Seckill seckill = seckillDao.queryById(seckillId);
+        //优化点 缓存优化
+        /*
+         *
+         */
+        //访问redis
+        Seckill seckill = redisDao.getSeckill(seckillId);
         if(seckill == null) {
-            return new Exposer(false,seckillId);
+            seckill = seckillDao.queryById(seckillId);
+            if(seckill == null) {
+                return new Exposer(false,seckillId);
+            } else {
+                //放入redis缓存
+                redisDao.putSeckill(seckill);
+            }
         }
-
         Date startTime = seckill.getStartTime();
         Date endTime = seckill.getEndTime();
         //系统当前时间
