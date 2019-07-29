@@ -1,4 +1,4 @@
-package com.designpattern.simplefactory;
+package com.designpattern.simplefactory.c;
 
 /**
  * 工厂方法设计模式
