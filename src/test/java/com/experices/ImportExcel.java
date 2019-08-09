@@ -31,8 +31,6 @@ import java.util.List;
  */
 public class ImportExcel {
 
-
-
     public static void main(String[] args) {
         Person person = new Person();
         getDataFromExcel("E:\\workspace\\文档\\补数据\\10005.xls",person);

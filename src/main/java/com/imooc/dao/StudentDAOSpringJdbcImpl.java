@@ -20,6 +20,7 @@ public class StudentDAOSpringJdbcImpl implements StudentDAO {
     public List<Student> query() {
         final List<Student> students = new ArrayList<>();
         String sql = "select sid,sname,cid from students";
+        System.out.println(jdbcTemplate);
         jdbcTemplate.query(sql, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
@@ -36,6 +37,8 @@ public class StudentDAOSpringJdbcImpl implements StudentDAO {
         });
         return students;
     }
+
+
 
     @Override
     public void save(Student student) {

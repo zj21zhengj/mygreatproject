@@ -17,7 +17,11 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="studentDAO" class="com.imooc.dao.StudentDAOSpringJdbcImpl">
+   <bean id="studentDAO" class="com.imooc.dao.StudentDAOSpringJdbcImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+
+	<bean id="excelDao" class="com.imooc.dao.ExcelDaoDAOSpringJdbcImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 
