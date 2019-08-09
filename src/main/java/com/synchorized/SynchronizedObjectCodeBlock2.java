@@ -1,20 +1,25 @@
 package com.synchorized;
 
-public class SynchorizedObjectCodeBlock2 implements Runnable {
+/**
+ *  对象锁
+ *
+ *  同步代码块锁
+ */
+public class SynchronizedObjectCodeBlock2 implements Runnable {
     Object lock1 = new Object();
 
-    static SynchorizedObjectCodeBlock2 instance = new SynchorizedObjectCodeBlock2();
+    static SynchronizedObjectCodeBlock2 instance = new SynchronizedObjectCodeBlock2();
 
     @Override
     public void run() {
         synchronized (lock1) { //也可以用this
-            System.out.println("我是Thread我叫" + Thread.currentThread().getName());
+            System.out.println("我是对象锁第一种方法：代码块" + Thread.currentThread().getName());
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(Thread.currentThread().getName() + "");
+            System.out.println(Thread.currentThread().getName() + "运行结束");
         }
     }
 
