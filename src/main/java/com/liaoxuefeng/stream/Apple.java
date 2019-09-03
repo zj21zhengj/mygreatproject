@@ -44,4 +44,14 @@ public class Apple {
     public void setOrigin(String origin) {
         this.origin = origin;
     }
+
+    @Override
+    public String toString() {
+        return "Apple{" +
+                "id=" + id +
+                ", color='" + color + '\'' +
+                ", weight=" + weight +
+                ", origin='" + origin + '\'' +
+                '}';
+    }
 }
