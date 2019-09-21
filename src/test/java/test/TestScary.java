@@ -1,7 +1,13 @@
 package test;
 
-public class TestScary {
-    public static void main(String[] args) {
-        ConnectionUtil.Connect("http://www.runoob.com/html/html-tutorial.html");
+
+import java.io.*;
+
+class SimpleIn {
+    public static void main(String[] args) throws Exception{
+
+        BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(keyboard.readLine());
     }
+
 }
