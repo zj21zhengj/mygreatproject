@@ -33,7 +33,7 @@ public class ImportExcel {
 
     public static void main(String[] args) {
         Person person = new Person();
-        getDataFromExcel("E:\\workspace\\文档\\补数据\\10005.xls",person);
+        getDataFromExcel("E:\\workspace\\文档\\补数据\\abc.xlsx",person);
     }
 
 
@@ -91,17 +91,20 @@ public class ImportExcel {
     //https://blog.csdn.net/weixin_43209201/article/details/86519522
     //https://blog.csdn.net/qq_21764553/article/details/79153227
     public static  void  getData(Sheet sheet, int lineNum, int rowNum, Person person){
+        System.out.println(lineNum);
+        System.out.println(rowNum);
+        rowNum = 5;
         //获得所有数据
-        for(int i =2; i <= lineNum ; i++){
+        for(int i =1; i <= lineNum ; i++){
             //获得第i行对象
             Row row = sheet.getRow(i);
             List<String> list = new ArrayList<>();
             String str2 = "";
             String str3 = "";
             double d = 0;
-            for(int j=1; j<rowNum; j++){
+            for(int j=0; j<rowNum; j++){
                 String str = "";
-                if (j == 3 ) {
+               /* if (j == 3 ) {
                     //System.out.println(row.getCell(j));
                     Date d2 = row.getCell(j).getDateCellValue();
                     DateFormat formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -118,7 +121,13 @@ public class ImportExcel {
                     //str = getRightTypeCell(row.getCell(j));
                 }
                 else if(j == 7)
-                    d = getRightTypeCell2(row.getCell(j));
+                    d = getRightTypeCell2(row.getCell(j));*/
+                if (j== 2) {
+                    Date d2 = row.getCell(j).getDateCellValue();
+                    DateFormat formater = new SimpleDateFormat("HH:mm:ss");
+                    str3 = formater.format(d2);
+                    str = str3;
+                }
                 else {
                     //System.out.println(j);
                     str = getRightTypeCell(row.getCell(j));
@@ -127,16 +136,16 @@ public class ImportExcel {
             }
             person.setFlow(list.get(0));
             person.setType(list.get(1));
-            person.setTransDate(str2);
-            person.setOrgCode(list.get(5));
-            person.setMoneys(d);
-            person.setDingDan(list.get(7));
-            person.setQianZhi(list.get(15));
-            person.setOper(list.get(16));
-            person.setUpdateTime(str3);
+            person.setUpdateTime(list.get(2));
+            person.setQianZhi(list.get(3));
+            person.setOper(list.get(4));
+            person.setUpdateTime(person.getType()+" "+person.getUpdateTime());
+            System.out.println("xxxxxxxxxxxxxxxxxxxxx");
+            System.out.println(person);
             //System.out.println(person.toString());
-            PersonDao studentDAO = new PersonDaoImpl();
-            studentDAO.save1(person);
+             PersonDao studentDAO = new PersonDaoImpl();
+             studentDAO.save1(person);
+            System.out.println("222222222");
         }
     }
 

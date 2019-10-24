@@ -13,19 +13,14 @@ public class PersonDaoImpl implements PersonDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String sql = "insert into my_temp(flow,type,trans_date,org_code,serial_no,trade_no,oper_acct,last_update_time,amount) values (?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into t_report_download_stat2(download_code,download_time,type,ip) values (?,?,?,?)";
         try {
             connection = JDBCUtil.getConnection();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,person.getFlow());
-            preparedStatement.setString(2,person.getType());
-            preparedStatement.setString(3,person.getTransDate());
-            preparedStatement.setString(4,person.getOrgCode());
-            preparedStatement.setString(5,person.getQianZhi());
-            preparedStatement.setString(6,person.getDingDan());
-            preparedStatement.setString(7,person.getOper());
-            preparedStatement.setString(8,person.getUpdateTime());
-            preparedStatement.setDouble(9,person.getMoneys());
+            preparedStatement.setString(1,person.getQianZhi());
+            preparedStatement.setString(2,person.getUpdateTime());
+            preparedStatement.setString(3,person.getOper());
+            preparedStatement.setString(4,person.getFlow());
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

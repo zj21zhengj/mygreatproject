@@ -20,7 +20,8 @@ public class ExcelDaoDAOSpringJdbcImpl implements ExcelDao {
     public List<OrgBalanceDetail> queryAll() {
         List<Object> argList = new ArrayList<>();
         List<OrgBalanceDetail> detailsall = new ArrayList<>();
-        String sql = "select * from t_org_balance_detail";
+        String sql = "SELECT download_code AS org_code,TYPE AS account_type," +
+                "COUNT(1) AS trade_no FROM t_report_download_stat2 GROUP BY download_code,TYPE";
         try {
             detailsall = jdbcTemplate.query(sql,argList.toArray(),new BeanPropertyRowMapper(OrgBalanceDetail.class));
         }catch (Exception e) {
