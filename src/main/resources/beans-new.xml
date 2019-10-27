@@ -43,6 +43,10 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<!--4 配置支持注解的事务-->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 

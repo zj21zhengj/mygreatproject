@@ -7,7 +7,9 @@ public class Person {
     private String type;
     private String transDate;
     private String orgCode;
-    private double moneys;
+    private long moneyin;
+    private long moneyout;
+    private long money;
     private String dingDan;
     private String qianZhi;
     private String oper;
@@ -45,13 +47,20 @@ public class Person {
         this.orgCode = orgCode;
     }
 
-    public double getMoneys() {
-        return moneys;
+    public long getMoneyin() {
+        return moneyin;
     }
 
-    public void setMoneys(double moneys) {
-        double mm = moneys*100;
-        this.moneys = (double) Math.round(mm * 100) / 100;
+    public void setMoneyin(long moneyin) {
+        this.moneyin = moneyin;
+    }
+
+    public long getMoneyout() {
+        return moneyout;
+    }
+
+    public void setMoneyout(long moneyout) {
+        this.moneyout = moneyout;
     }
 
     public String getDingDan() {
@@ -86,6 +95,14 @@ public class Person {
         this.updateTime = updateTime;
     }
 
+    public long getMoney() {
+        return money;
+    }
+
+    public void setMoney(long money) {
+        this.money = money;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -93,7 +110,8 @@ public class Person {
                 ", type='" + type + '\'' +
                 ", transDate='" + transDate + '\'' +
                 ", orgCode='" + orgCode + '\'' +
-                ", moneys=" + moneys +
+                ", moneyin=" + moneyin +
+                ", moneyout=" + moneyout +
                 ", dingDan='" + dingDan + '\'' +
                 ", qianZhi='" + qianZhi + '\'' +
                 ", oper='" + oper + '\'' +

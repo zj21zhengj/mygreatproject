@@ -33,7 +33,8 @@ public class ImportExcel {
 
     public static void main(String[] args) {
         Person person = new Person();
-        getDataFromExcel("E:\\workspace\\文档\\补数据\\abc.xlsx",person);
+        // getDataFromExcel("E:\\workspace\\文档\\补数据\\abc.xlsx",person);
+        getDataFromExcel("C:\\Users\\zhengj\\Desktop\\Vue\\aa.xlsx",person);
     }
 
 
@@ -93,9 +94,9 @@ public class ImportExcel {
     public static  void  getData(Sheet sheet, int lineNum, int rowNum, Person person){
         System.out.println(lineNum);
         System.out.println(rowNum);
-        rowNum = 5;
+        rowNum = 7;
         //获得所有数据
-        for(int i =1; i <= lineNum ; i++){
+        for(int i =2; i <= lineNum ; i++){
             //获得第i行对象
             Row row = sheet.getRow(i);
             List<String> list = new ArrayList<>();
@@ -111,43 +112,71 @@ public class ImportExcel {
                     str2 = formater.format(d2);
                     //System.out.println(str2);
                     //str = getRightTypeCell(row.getCell(j));
-                }
-                else if (j== 18) {
+                }*/
+                if (j== 0) {
                     System.out.println(row.getCell(j));
                     Date d2 = row.getCell(j).getDateCellValue();
-                    DateFormat formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    str3 = formater.format(d2);
+                    DateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+                    str = formater.format(d2);
                     //System.out.println(str2);
                     //str = getRightTypeCell(row.getCell(j));
                 }
+                /*
                 else if(j == 7)
                     d = getRightTypeCell2(row.getCell(j));*/
-                if (j== 2) {
-                    Date d2 = row.getCell(j).getDateCellValue();
+                else if (j == 1) {
+                    Date d3 = row.getCell(j).getDateCellValue();
                     DateFormat formater = new SimpleDateFormat("HH:mm:ss");
-                    str3 = formater.format(d2);
+                    str3 = formater.format(d3);
                     str = str3;
                 }
                 else {
                     //System.out.println(j);
-                    str = getRightTypeCell(row.getCell(j));
+                    if(row.getCell(j) == null) {
+                        System.out.println("mmmmmmmmmmmmmm");
+                        str = "";
+                    }else
+                        str = getRightTypeCell(row.getCell(j));
                 }
                 list.add(str);
             }
-            person.setFlow(list.get(0));
-            person.setType(list.get(1));
-            person.setUpdateTime(list.get(2));
-            person.setQianZhi(list.get(3));
-            person.setOper(list.get(4));
-            person.setUpdateTime(person.getType()+" "+person.getUpdateTime());
+            person.setDingDan(list.get(0).replaceAll("/","-"));
+            person.setUpdateTime(list.get(1));
+            person.setOrgCode("人民币");
+            String am1 = list.get(2);
+            String am3 = list.get(3);
+            long bm;
+            long bm3;
+            if (am1 == "" || am1.length() == 0)
+                bm = 0;
+            else
+                bm = (long) (Double.valueOf(list.get(2).replaceAll(",",""))*100);
+            if (am3 == "" || am3.length() == 0)
+                bm3 = 0;
+            else
+                bm3 = (long) (Double.valueOf(list.get(3).replaceAll(",",""))*100);
+
+            person.setMoneyout(bm);
+            person.setMoneyin(bm3);
+            long cm;
+            System.out.println(list.get(4).length());
+            cm = (long) (Double.valueOf(list.get(4).replaceAll(",", "")) * 100);
+
+           /* person.setMoneyin(bm);
+            person.setMoneyout(bm);*/
+            person.setMoney(cm);
+            person.setFlow(list.get(5));
+            System.out.println(list);
+            person.setOper(list.get(6));
             System.out.println("xxxxxxxxxxxxxxxxxxxxx");
             System.out.println(person);
             //System.out.println(person.toString());
-             PersonDao studentDAO = new PersonDaoImpl();
-             studentDAO.save1(person);
+            PersonDao studentDAO = new PersonDaoImpl();
+            studentDAO.save1(person);
             System.out.println("222222222");
         }
     }
+
 
     /**
      * @param cell 一个单元格的对象
