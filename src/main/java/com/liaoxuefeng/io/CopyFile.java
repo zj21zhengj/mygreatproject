@@ -4,6 +4,8 @@ import java.io.*;
 
 /**
  * 练习 可以通过args 给类文件传递参数  仔细分析应该是读入的时候Io操作耗时，因为写入会自带缓冲区的
+ *
+ * 注意while 必须 n=input.read() 才能一边循环，一边往下读取
  */
 public class CopyFile {
     public static void main(String[] args) throws IOException {
