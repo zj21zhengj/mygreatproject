@@ -1,4 +1,4 @@
-package com.iTranswarp.refects;
+package com.liaoxuefeng.refects;
 
 /**
  * 每加载一种class,jvm就为其创建一个class类型的实例，并关联起来

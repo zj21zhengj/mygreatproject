@@ -1,4 +1,4 @@
-package com.iTranswarp.arrays;
+package com.liaoxuefeng.arrays;
 
 public class ArgusMain {
     public static void main(String[] args) {
