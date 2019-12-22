@@ -33,7 +33,7 @@ public class LeadOutExcel {
         Workbook book = null;
         //List<Per> assetBalanceDetailList = financeCenterBo.queryAssetBalanceDetailList(param);
         try {
-            book = Workbook.getWorkbook(new File("C:\\Users\\HengTian\\Desktop\\a\\订单管理(模板).xls"));
+            book = Workbook.getWorkbook(new File("C:\\Users\\HengTian\\Desktop\\a\\保证金统计(模板).xls"));
             wwb = Workbook.createWorkbook(new File("C:\\Users\\HengTian\\Desktop\\a\\" + fileName + ".xls"), book);
             WritableSheet sheet = wwb.getSheet(0);
             WritableFont wf = new WritableFont(WritableFont.createFont("宋体"), 10);
@@ -53,19 +53,12 @@ public class LeadOutExcel {
             if (null != orgBalanceDetailList && orgBalanceDetailList.size() > 0) {
                 for (int i = 0; i < orgBalanceDetailList.size(); i++) {
                     OrgBalanceDetail tmpBean = orgBalanceDetailList.get(i);
-                    sheet.addCell(new Label(0, i +1, String.valueOf(i + 1), format));
-                    sheet.addCell(new Label(1, i + 1, (String) tmpBean.getAccountDate(), format));
-                    sheet.addCell(new Label(2, i + 1, (String) tmpBean.getNameOfAccountType(), format));
-                    String adjustAmount = tmpBean.getStrOfAdjustAmount();
-                    String transAmount = tmpBean.getStrOfAdjustAmount();
-                    String investAmount = tmpBean.getOrgCode();
-                    sheet.addCell(new Label(3, i + 1, adjustAmount, format));
-                    sheet.addCell(new Label(4, i + 1, (String) tmpBean.getAccountDate(), format));
+                    sheet.addCell(new Label(0, i +1, (String)tmpBean.getOrgCode(),  format));
+                    sheet.addCell(new Label(2, i + 1, (String) tmpBean.getAccountType(), format));
+                    sheet.addCell(new Label(4, i + 1, (String) tmpBean.getTradeNo(), format));/*
                     sheet.addCell(new Label(5, i + 1, (String) tmpBean.getLastUpdateTime(), format));
                     sheet.addCell(new Label(6, i + 1, (String) tmpBean.getOperAcct(), format));
-                    sheet.addCell(new Label(7, i + 1, (String) tmpBean.getSerialNo(), format));
-                    sheet.addCell(new Label(8, i + 1, transAmount, format));
-                    sheet.addCell(new Label(9, i + 1, investAmount, format));
+                    sheet.addCell(new Label(7, i + 1, (String) tmpBean.getSerialNo(), format));*/
                 }
             }
             wwb.write();
