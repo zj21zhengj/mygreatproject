@@ -1,0 +1,46 @@
+<!--在 HTML 4.01 中有 3 个不同的文档类型，在 HTML 5 中只有一个 所以可以区分是否是html5-->
+<!--https://blog.csdn.net/wqsbenren/article/details/95807494  localhost打开本地网站-->
+<!-- v-clock可以解决 插值表达式闪烁问题  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>+++++++++{{ msg }}-------------</p>
+        <!-- 1.v-text默认没有闪烁问题-->
+        <!-- 2.v-text会把里面的覆盖掉  {{}} 则不会的-->
+        <h4 v-text="msg">------</h4>
+        <!-- 3.v-html 会转义 h标签-->
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>
+        <!-- v-blind 是 vue中 提供的用于绑定属性的指令-->
+        <!-- v-blind 可以被简写为 ：+ 要被简写的属性-->
+        <!-- v-blind 可以写合法的 js表达式 -->
+
+        <!-- v-on 绑定了事件机制 -->
+        <input type="button" value="按钮" v-bind:title = "mytitle + '123'"  v-on:click="show"/>
+
+    </div>
+    <script>
+        //2 创建一个Vue实例
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '欢迎学习Vue',
+                msg2: "<h1>Vue难吗？</h1>",
+                mytitle:"这是自己定义的title"
+            },
+            methods:{
+                show: function() {
+                    alert(123);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
