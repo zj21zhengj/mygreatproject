@@ -1,4 +1,4 @@
-package com.blibli.multithreading;
+package com.blibli.multithreading01;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

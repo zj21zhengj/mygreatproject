@@ -1,4 +1,4 @@
-package com.blibli.multithreading;
+package com.blibli.multithreading01;
 
 /**
  * 有 A B C 三个售票员卖30张票的 原始方法

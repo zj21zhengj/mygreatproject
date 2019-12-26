@@ -1,4 +1,4 @@
-package com.blibli.multithreading;
+package com.blibli.multithreading01;
 
 public class SellTicketDemo3 {
     public static void main(String[] args) {
