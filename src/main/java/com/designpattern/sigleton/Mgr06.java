@@ -2,7 +2,8 @@ package com.designpattern.sigleton;
 
 public class Mgr06 {
 
-    private static Mgr06 INSTANCE;
+    //volatite作用 1线程间可见 2防止指令重排
+    private static volatile Mgr06 INSTANCE;
 
     private Mgr06() {
     }
