@@ -1,5 +1,6 @@
 package com.unclear;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.nio.charset.Charset;
 
 public class Unclear {
@@ -25,10 +26,24 @@ public class Unclear {
         System.out.println (new StringBuilder ().append ("Character-->>").append ("字节数：").append (Character.BYTES).append (";位数：").
                 append (Character.SIZE).append ("; 最小值-->最大值:").append ((int)Character.MIN_VALUE).append ("-->").append ((int)Character.MAX_VALUE));
 
-        short b = 32763;
-        System.out.println(b);
-        double c = Math.pow(2,-32);
-        System.out.println(c);
+
+        /**
+         *   java虚拟机缓存了Integer、Byte、Short、Character、Boolean包装类在-128~127之间的值
+         *  如果取值在这个范围内，会从int常量池取出一个int并自动装箱成Integer，
+         *  超出这个范围就会重新创建一个。
+         */
+        Integer i1 = new Integer(1);
+        Integer i2 = new Integer(1);//i1,i2位于堆中不同的内存空间
+
+        Integer i3 = 1;//this is autoboxing
+        Integer i4 = 1;//i3,i4位于指向常量池中同一个内存空间
+
+        Integer i5 = 300;
+        Integer i6 = 300;//i5,i6超出范围，分别创建新的对象
+
+        System.out.println(i1 == i2);//false
+        System.out.println(i3 == i4);//true
+        System.out.println(i5 == i6);//false
 
 
         //###################################################################################
