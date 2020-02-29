@@ -1,7 +1,7 @@
 package ioooc.wukong.threadPool;
 
 /**
- * 实现多线程的3种方法
+ * 实现多线程的4种方法
  */
 public class EveryTaskOnThread {
     public static void main(String[] args) {
