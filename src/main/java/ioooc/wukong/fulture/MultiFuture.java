@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
 
+/**
+ * 方法一 是用 线程池的submit获取返回值
+ * 方法二 是FutureTask
+ *
+ */
 public class MultiFuture {
     public static void main(String[] args) {
         ExecutorService service = Executors.newFixedThreadPool(4);
