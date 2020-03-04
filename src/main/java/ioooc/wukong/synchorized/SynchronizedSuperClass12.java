@@ -1,4 +1,4 @@
-package com.synchorized;
+package ioooc.wukong.synchorized;
 
 /**
  * 可重入性 粒度测试 调用父类方法

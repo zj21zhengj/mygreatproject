@@ -1,4 +1,4 @@
-package com.synchorized;
+package ioooc.wukong.synchorized;
 
 /**
  * 同时访问一个类的不同的普通同步方法

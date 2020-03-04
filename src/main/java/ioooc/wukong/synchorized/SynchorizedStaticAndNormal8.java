@@ -1,4 +1,4 @@
-package com.synchorized;
+package ioooc.wukong.synchorized;
 
 /**
  * 锁是不一样 一个是.class，一个是this

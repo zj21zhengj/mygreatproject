@@ -1,4 +1,4 @@
-package com.synchorized;
+package ioooc.wukong.synchorized;
 
 /**
  * 可重入性验证 不是同一方法

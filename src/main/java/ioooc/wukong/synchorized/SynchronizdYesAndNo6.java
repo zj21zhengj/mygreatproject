@@ -1,4 +1,4 @@
-package com.synchorized;
+package ioooc.wukong.synchorized;
 
 /**
  * 同时访问加锁和不加锁的方法
