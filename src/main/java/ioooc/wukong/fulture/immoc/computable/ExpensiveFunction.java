@@ -8,6 +8,7 @@ public class ExpensiveFunction implements Computable<String,Integer>{
     @Override
     public Integer computer(String arg) throws Exception {
         Thread.sleep(5000);
+        System.out.println("-----------------");
         return new Integer(arg);
     }
 }

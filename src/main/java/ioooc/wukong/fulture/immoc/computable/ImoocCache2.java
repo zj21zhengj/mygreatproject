@@ -21,7 +21,7 @@ public class ImoocCache2<A,V> implements Computable<A,V> {
 
 
     @Override
-    public V computer(A arg) throws Exception {
+    public synchronized V computer(A arg) throws Exception {
         System.out.println("进入缓存机制");
         V res = cache.get(arg);
         if(res == null) {
