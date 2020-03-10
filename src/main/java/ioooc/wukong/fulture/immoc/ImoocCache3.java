@@ -1,6 +1,8 @@
-package ioooc.wukong.fulture.immoc.computable;
+package ioooc.wukong.fulture.immoc;
 
-import java.util.HashMap;
+import ioooc.wukong.fulture.immoc.computable.Computable;
+import ioooc.wukong.fulture.immoc.computable.ExpensiveFunction;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
