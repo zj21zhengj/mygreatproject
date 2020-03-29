@@ -1,4 +1,4 @@
-package ioooc.wukong.fulture.immoc;
+package ioooc.wukong.immoc;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;

@@ -1,4 +1,4 @@
-package ioooc.wukong.fulture.immoc.computable;
+package ioooc.wukong.immoc.computable;
 
 /**
  * 耗时计算的实现类，实现了Computable接口，但是本身不具备缓存能力，不需要考虑缓存的事情

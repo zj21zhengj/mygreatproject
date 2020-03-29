@@ -1,7 +1,7 @@
-package ioooc.wukong.fulture.immoc;
+package ioooc.wukong.immoc;
 
-import ioooc.wukong.fulture.immoc.computable.Computable;
-import ioooc.wukong.fulture.immoc.computable.MayFail;
+import ioooc.wukong.immoc.computable.Computable;
+import ioooc.wukong.immoc.computable.MayFail;
 
 import java.util.Map;
 import java.util.concurrent.*;

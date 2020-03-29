@@ -1,4 +1,4 @@
-package ioooc.wukong.fulture.immoc.computable;
+package ioooc.wukong.immoc.computable;
 
 import java.io.IOException;
 
