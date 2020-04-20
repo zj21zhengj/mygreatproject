@@ -2,7 +2,8 @@ package test;
 
 /**
  * Integer常量池是 -128 - 127，如果先等于 Integer = 10,在new一个
- * 就会指向常量池 == 就有效，否则无效
+ * 就会指向常量池 FileName
+ * == 就有效，否则无效
  */
 public class CompareInt {
     public static void main(String[] args) {
