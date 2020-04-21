@@ -6,10 +6,7 @@
 
 <body>
 <div id="app">
-    <p>{{ msg }}</p>
-    <p>{{ ok ? 'YES' : 'NO' }}</p>
-    <p>{{ msg.split('').reverse().join('') }}</p>
-    <input v-model="msg" type="text" />
+    <a v-bind:href="url">百度</a>
 </div>
 
 <script>
@@ -17,8 +14,7 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            msg: '欢迎学习Vue',
-            ok: false
+           url: "http://www.baidu.com"
         }
     })
 </script>
