@@ -113,5 +113,9 @@ public class AppleDemo {
         List cc = new AppleDemo().getAppleByTrue();
         System.out.println(cc.size());
         new AppleDemo().groupByColor();
+
+        int ageSum = appleStore.stream().collect(Collectors.summingInt(Apple::getWeight));
+        System.out.println(ageSum);
     }
+
 }
